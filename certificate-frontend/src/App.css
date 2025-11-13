@@ -1,0 +1,55 @@
+:root{
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --accent: #6a3d9a;
+  --muted: #6b7280;
+}
+
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: #111827;
+}
+
+.app-wrap{
+  max-width:1100px;
+  margin:24px auto;
+  padding:18px;
+}
+
+header h1{margin:0; color:var(--accent)}
+.subtitle{color:var(--muted); margin-top:6px}
+
+.main{
+  display:flex;
+  gap:20px;
+  margin-top:18px;
+}
+.left{flex:0 0 380px}
+.right{flex:1}
+
+.form-card{background:var(--card); padding:18px; border-radius:10px; box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+.form-card h2{margin-top:0}
+.form-grid{display:flex; flex-direction:column; gap:10px}
+.form-grid label{display:flex; flex-direction:column; font-size:14px}
+.form-grid input{padding:8px 10px; border-radius:6px; border:1px solid #e5e7eb}
+.form-actions{display:flex; gap:10px; margin-top:6px}
+
+.primary{background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer}
+
+.toolbar{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+.info{color:var(--muted)}
+.error{color:#b91c1c}
+
+.cards{display:flex; flex-wrap:wrap; gap:12px}
+.card{background:var(--card); padding:12px; width:260px; border-radius:10px; box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.card-header h3{margin:0}
+.card-body p{margin:6px 0}
+.card-actions{display:flex; gap:8px; margin-top:8px}
+.card-actions .edit{background:#059669; color:white; border:none; padding:6px 10px; border-radius:6px; cursor:pointer}
+.card-actions .delete{background:#ef4444; color:white; border:none; padding:6px 10px; border-radius:6px; cursor:pointer}
+
+footer{margin-top:18px; color:var(--muted)}
+
+.empty{background:var(--card); padding:12px; border-radius:8px}
