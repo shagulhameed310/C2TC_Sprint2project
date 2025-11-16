@@ -71,8 +71,7 @@ function App() {
   return (
     <div className="app-wrap">
       <header>
-        <h1>Certificate Module</h1>
-        <p className="subtitle">Add / Edit / Delete certificates — connected to your Spring Boot backend</p>
+        <h1>Certificate Management System</h1>
       </header>
 
       <main className="main">

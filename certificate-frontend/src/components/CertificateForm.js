@@ -6,7 +6,9 @@ function CertificateForm({ onAdd, onUpdate, editing, cancelEdit }) {
     name: '',
     issuer: '',
     issueDate: '',
-    expiryDate: ''
+    expiryDate: '',
+    description: '',
+    certificateUrl: ''
   });
 
   useEffect(() => {
@@ -16,10 +18,20 @@ function CertificateForm({ onAdd, onUpdate, editing, cancelEdit }) {
         name: editing.name ?? '',
         issuer: editing.issuer ?? '',
         issueDate: editing.issueDate ?? '',
-        expiryDate: editing.expiryDate ?? ''
+        expiryDate: editing.expiryDate ?? '',
+        description: editing.description ?? '',
+        certificateUrl: editing.certificateUrl ?? ''
       });
     } else {
-      setForm({ id: '', name: '', issuer: '', issueDate: '', expiryDate: '' });
+      setForm({
+        id: '',
+        name: '',
+        issuer: '',
+        issueDate: '',
+        expiryDate: '',
+        description: '',
+        certificateUrl: ''
+      });
     }
   }, [editing]);
 
@@ -31,7 +43,7 @@ function CertificateForm({ onAdd, onUpdate, editing, cancelEdit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.name || !form.issuer || !form.issueDate || !form.expiryDate) {
-      alert('Please fill all fields');
+      alert('Please fill all required fields');
       return;
     }
 
@@ -40,19 +52,32 @@ function CertificateForm({ onAdd, onUpdate, editing, cancelEdit }) {
       name: form.name,
       issuer: form.issuer,
       issueDate: form.issueDate,
-      expiryDate: form.expiryDate
+      expiryDate: form.expiryDate,
+      description: form.description,
+      certificateUrl: form.certificateUrl
     };
 
     if (editing) onUpdate(payload);
     else onAdd(payload);
 
-    if (!editing) setForm({ id: '', name: '', issuer: '', issueDate: '', expiryDate: '' });
+    if (!editing) {
+      setForm({
+        id: '',
+        name: '',
+        issuer: '',
+        issueDate: '',
+        expiryDate: '',
+        description: '',
+        certificateUrl: ''
+      });
+    }
   };
 
   return (
     <div className="form-card">
       <h2>{editing ? 'Update Certificate' : 'Add Certificate'}</h2>
       <form onSubmit={handleSubmit} className="form-grid">
+        
         <label>
           ID
           <input
@@ -82,6 +107,27 @@ function CertificateForm({ onAdd, onUpdate, editing, cancelEdit }) {
         <label>
           Expiry Date
           <input type="date" name="expiryDate" value={form.expiryDate} onChange={handleChange} />
+        </label>
+
+        <label>
+          Description
+          <textarea
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            placeholder="Enter description"
+          />
+        </label>
+
+        <label>
+          Certificate URL
+          <input
+            type="text"
+            name="certificateUrl"
+            value={form.certificateUrl}
+            onChange={handleChange}
+            placeholder="https://..."
+          />
         </label>
 
         <div className="form-actions">

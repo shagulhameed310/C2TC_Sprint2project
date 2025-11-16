@@ -18,6 +18,20 @@ function CertificateList({ certificates, onEdit, onDelete }) {
             <p><b>Issue:</b> {c.issueDate}</p>
             <p><b>Expiry:</b> {c.expiryDate}</p>
             <p><b>ID:</b> {c.id}</p>
+
+            {/* New Fields */}
+            <p><b>Description:</b> {c.description || "—"}</p>
+
+            <p>
+              <b>Certificate URL:</b>{' '}
+              {c.certificateUrl ? (
+                <a href={c.certificateUrl} target="_blank" rel="noopener noreferrer">
+                  View Certificate
+                </a>
+              ) : (
+                "—"
+              )}
+            </p>
           </div>
 
           <div className="card-actions">
